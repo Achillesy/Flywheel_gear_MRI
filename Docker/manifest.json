@@ -1,0 +1,45 @@
+{
+    "name": "hello-world-xuchu",
+    "label": "Hello World: My First RUSH Gear",
+    "description": "Xuchu's test gear 4 rush.",
+    "version": "0.1.0",
+    "author":  "Xuchu Liu",
+    "maintainer":  "xuchu_liu@rush.edu",
+    "cite":  "Try again.",
+    "license": "Apache-2.0",
+    "url": "http://example.example",
+    "source":  "http://example.example/code",
+    "environment": {
+        "FLYWHEEL":"/flywheel/v0"
+     },
+    "custom": {
+        "gear-builder": {
+            "category": "analysis",
+            "image": "ahsoka/tensorflow-rush:0.1.0"
+        },
+        "flywheel": {
+            "suite": "TF 2.4.1 Suite"
+         }
+    },
+    "inputs": {
+        "message_file": {
+            "base": "file",
+            "type": { "enum": [ "text" ] },
+            "description": "the custom message we'll print after our Hello statements"
+        }
+    },
+    "config": {
+        "my_name": {
+            "type": "string",
+            "description": "Your name, for the program to say 'hello' to"
+        },
+       "num_rep": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 0,
+            "maximum": 10,
+            "description": "The number of times to say 'hello'"
+        }
+    },
+    "command": "python run.py"
+}

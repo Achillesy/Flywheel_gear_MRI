@@ -17,8 +17,10 @@
 FROM ahsoka/tensorflow-rush:0.1.0
 ENV FLYWHEEL=/flywheel/v0
 
-# RUN mkdir -p ${FLYWHEEL}
+RUN mkdir -p ${FLYWHEEL}
 # COPY run.py ${FLYWHEEL}/run.py
 
+# Configure entrypoint
 # WORKDIR ${FLYWHEEL}
 # ENTRYPOINT ["python run.py"]
+ENTRYPOINT ["sh", "-c", "ls -al $FLYWHEEL"]

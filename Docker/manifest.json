@@ -1,21 +1,18 @@
 {
-    "name": "Fetal MRI Anatomy Measurement",
-    "label": "Deep Learning Model for Automatic Fetal Brain Landmark Localization in MRI.",
-    "description": "Anatomic fetal brain measurements on MRI can be achieved by using a deep learning model to predict certain landmarks automatically and further improved by a quick second check by the radiologists.",
-    "version": "0.3.0",
+    "name": "fetal-brain",
+    "label": "Fetal MRI Anatomy Measurement",
+    "description": "Deep Learning Model for Automatic Fetal Brain Landmark Localization in MRI.",
+    "version": "0.4.2",
     "author": "Xuchu Liu",
     "maintainer": "xuchu_liu@rush.edu",
     "cite": "God loves All Beings",
     "license": "Apache-2.0",
     "url": "https://achillesy.github.io/",
     "source": "https://github.com/Achillesy/Flywheel_gear_MRI",
-    "environment": {
-        "FLYWHEEL": "/flywheel/v0"
-    },
     "custom": {
         "gear-builder": {
-            "category": "analysis",
-            "image": "ahsoka/tensorflow-rush:0.2.0"
+            "category": "utility",
+            "image": "ahsoka/tensorflow-rush:0.3.0"
         },
         "flywheel": {
             "suite": "TF 2.4.1 Suite"
@@ -41,17 +38,19 @@
             "maximum": 38,
             "description": "Gestation weeks"
         },
-        "config": {
-            "vendor": {
-                "description": "Anatomical Fetal Brain Measurement Types",
-                "default": "A-P Diameter of Pons",
-                "type": "string",
-                "enum": [
-                    "A-P Diameter of Pons",
-                    "A-P Diameter of Vermis and Height of Vermis",
-                    "Fronto-Occpitial"
-                ]
-            }
-        }  
+        "Measurement": {
+            "description": "Anatomical Fetal Brain Measurement Types",
+            "default": "All of the measurements",
+            "type": "string",
+            "enum": [
+                "All of the measurements",
+                "A-P Diameter of Pons",
+                "A-P Diameter of Vermis and Height of Vermis",
+                "Fronto-Occpitial"
+            ]
+        }
+    },
+    "environment": {
+        "FLYWHEEL": "/flywheel/v0"
     }
 }

@@ -9,18 +9,30 @@
 #     apt-utils python3-opencv \
 #     unzip jq tree && \
 #     pip install --upgrade pip && \
-#     pip install flywheel-sdk opencv-python \
-#     pandas pydicom nibabel && \
+#     pip install flywheel-sdk flywheel_gear_toolkit \
+#     rtstatlib pathvalidate dataclasses \
+#     opencv-python pandas pydicom pillow nibabel && \
 #     rm -rf /var/cache/apt/*
 
 ## docker build -t ahsoka/tensorflow-rush:0.2.0 .
-FROM ahsoka/tensorflow-rush:0.1.0
+# FROM ahsoka/tensorflow-rush:0.1.0
+# ENV FLYWHEEL=/flywheel/v0
+
+# RUN mkdir -p ${FLYWHEEL}
+# COPY h5 $FLYWHEEL/h5
+# COPY pylib $FLYWHEEL/pylib
+
+## docker build -t ahsoka/tensorflow-rush:0.3.0 .
+FROM ahsoka/tensorflow-rush:0.2.0
 ENV FLYWHEEL=/flywheel/v0
 
-RUN mkdir -p ${FLYWHEEL}
-# COPY run.py ${FLYWHEEL}/run.py
+COPY analyze_infocsv.py ${FLYWHEEL}/analyze_infocsv.py
+COPY dicom2img.py ${FLYWHEEL}/dicom2img.py
+COPY fetal_brain_predict.py ${FLYWHEEL}/fetal_brain_predict.py
+COPY manifest.json ${FLYWHEEL}/manifest.json
+COPY pyconfiguration.json ${FLYWHEEL}/pyconfiguration.json
+COPY run ${FLYWHEEL}/run
+RUN  chmod +x ${FLYWHEEL}/run
 
-# Configure entrypoint
 # WORKDIR ${FLYWHEEL}
-# ENTRYPOINT ["python run.py"]
-ENTRYPOINT ["sh", "-c", "ls -al $FLYWHEEL"]
+# ENTRYPOINT ["sh", "-c", "ls -al $FLYWHEEL"]

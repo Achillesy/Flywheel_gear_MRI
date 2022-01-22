@@ -1,0 +1,16 @@
+{
+    "hdf5Pons":[
+        "pons_mark1_173_180.hdf5",
+        "pons_mark2_175_180.hdf5"
+    ],
+    "hdf5Vermis":[
+        "vermis_mark1_176_180.hdf5",
+        "vermis_mark2_149_180.hdf5",
+        "hvermis_mark1_161_180.hdf5",
+        "hvermis_mark2_166_180.hdf5"
+    ],
+    "hdf5Fronto":[
+        "fronto_mark1_116_180.hdf5",
+        "fronto_mark2_64_180.hdf5"
+    ]
+}

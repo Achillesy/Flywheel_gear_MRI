@@ -1,0 +1,73 @@
+#! /bin/bash
+# Run FETAL MRI gear
+
+# Configure the ENV
+export LC_ALL=C.UTF-8
+
+###############################################################################
+# Configure paths
+FLYWHEEL_BASE=/flywheel/v0
+OUTPUT_DIR=$FLYWHEEL_BASE/output
+INPUT_DIR=$FLYWHEEL_BASE/input
+CONFIG_FILE=$FLYWHEEL_BASE/config.json
+MANIFEST_FILE=$FLYWHEEL_BASE/manifest.json
+
+cd $FLYWHEEL_BASE
+# pwd
+
+###############################################################################
+## show config.json
+# echo -e "=== cat config.json ==="
+# cat $FLYWHEEL_BASE/config.json
+
+###############################################################################
+## unzip input_sag
+INPUT_ZIP_FILE=$(cat config.json | jq -r '.inputs.input_sag.location.path')
+rm -rf /tmp/DZIP
+unzip -joq "$INPUT_ZIP_FILE" -d /tmp/DZIP
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during unzip INPUT_ZIP_FILE!"
+  exit 1
+fi
+## show unzip result
+# chmod -R 777 /tmp/DZIP
+# echo -e "=== list input dicom ==="
+# tree /tmp/DZIP
+
+###############################################################################
+echo -e "=== Prepare for dicom images ... ==="
+rm -rf /tmp/DIMG
+mkdir /tmp/DIMG
+echo -e "python dicom2img.py"
+python dicom2img.py
+# Check status code and die
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during save dicom as images!"
+  exit 1
+fi
+tree /tmp/DIMG
+# cat $OUTPUT_DIR/info.csv
+echo -e "=== Prepare for dicom images Done! ==="
+
+###############################################################################
+echo -e "=== Fetal MRI Anatomy Measurement ... ==="
+echo -e "python fetal_brain_predict.py"
+python fetal_brain_predict.py
+# Check status code and die
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during measurement!"
+  exit 1
+fi
+# cat $OUTPUT_DIR/info.csv
+echo -e "=== Fetal MRI Anatomy Measurement Done! ==="
+
+###############################################################################
+echo -e "=== Analysis of measurement results ... ==="
+echo -e "python analyze_infocsv.py"
+python analyze_infocsv.py
+# Check status code and die
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during analysis!"
+  exit 1
+fi
+echo -e "=== Analysis of measurement results Done! ==="

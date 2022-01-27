@@ -292,9 +292,9 @@ if __name__ == "__main__":
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
     
-        Pons_dcm_name = os.path.join(output_path, Pons_dcm)
-        if not os.path.exists(Pons_dcm_name):
-            os.system('cp ' + data.DicomPath + ' ' + Pons_dcm_name)
+        # Pons_dcm_name = os.path.join(output_path, Pons_dcm)
+        # if not os.path.exists(Pons_dcm_name):
+        #     os.system('cp ' + data.DicomPath + ' ' + Pons_dcm_name)
         Pons_name = os.path.join(output_path, Pons_img)
         if not os.path.exists(Pons_name):
             os.system('cp /tmp/DIMG/' + Pons_img + ' ' + Pons_name)
@@ -361,9 +361,9 @@ if __name__ == "__main__":
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
     
-        Vermis_dcm_name = os.path.join(output_path, Vermis_dcm)
-        if not os.path.exists(Vermis_dcm_name):
-            os.system('cp ' + data.DicomPath + ' ' + Vermis_dcm_name)
+        # Vermis_dcm_name = os.path.join(output_path, Vermis_dcm)
+        # if not os.path.exists(Vermis_dcm_name):
+        #     os.system('cp ' + data.DicomPath + ' ' + Vermis_dcm_name)
         Vermis_name = os.path.join(output_path, Vermis_img)
         if not os.path.exists(Vermis_name):
             os.system('cp /tmp/DIMG/' + Vermis_img + ' ' + Vermis_name)
@@ -409,9 +409,9 @@ if __name__ == "__main__":
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
     
-        Fronto_dcm_name = os.path.join(output_path, Fronto_dcm)
-        if not os.path.exists(Fronto_dcm_name):
-            os.system('cp ' + data.DicomPath + ' ' + Fronto_dcm_name)
+        # Fronto_dcm_name = os.path.join(output_path, Fronto_dcm)
+        # if not os.path.exists(Fronto_dcm_name):
+        #     os.system('cp ' + data.DicomPath + ' ' + Fronto_dcm_name)
         Fronto_name = os.path.join(output_path, Fronto_img)
         if not os.path.exists(Fronto_name):
             os.system('cp /tmp/DIMG/' + Fronto_img + ' ' + Fronto_name)

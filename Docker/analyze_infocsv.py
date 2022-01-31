@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 
 import cv2
+import json
 
 image_path = "/tmp/DIMG"
 flywheel_path = "/flywheel/v0"
@@ -245,6 +246,11 @@ if __name__ == "__main__":
     normalColor = (250, 250, 250)
     abnormalColor = (60, 60, 250)
     reportList = []
+    jsonOHIF = {
+        "measurements": {
+            "Length": []
+        }
+    }
 
     data = df_instance.iloc[0]
     txtLine = "PatientName: %s\n" % (data["PatientName"])
@@ -424,12 +430,20 @@ if __name__ == "__main__":
         print(line)
     if measure.find("All") == 0:
         reportName = os.path.join(output_path, "AI_all_report.txt")
+        jsonName = os.path.join(output_path, "AI_all_report.json")
     if measure.find("Pons") > 0:
         reportName = os.path.join(output_path, "AI_pons_report.txt")
+        jsonName = os.path.join(output_path, "AI_pons_report.json")
     if measure.find("Vermis") > 0:
         reportName = os.path.join(output_path, "AI_vermis_report.txt")
+        jsonName = os.path.join(output_path, "AI_vermis_report.json")
     if measure.find("Fronto") == 0:
         reportName = os.path.join(output_path, "AI_fronto_report.txt")
+        jsonName = os.path.join(output_path, "AI_fronto_report.json")
     f = open(reportName, "w")
     f.writelines(reportList)
     f.close()
+
+    with open(jsonName, "w") as f:
+        json.dump(jsonOHIF,f)
+

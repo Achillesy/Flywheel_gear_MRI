@@ -131,3 +131,5 @@ dmypy.json
 # weight
 *.hdf5
 *.h5
+fw
+fwlogin

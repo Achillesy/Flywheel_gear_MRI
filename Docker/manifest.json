@@ -28,6 +28,10 @@
                 ]
             },
             "description": "Selected SAG series"
+        },
+        "key": {
+            "base": "api-key",
+            "read-only": true
         }
     },
     "config": {
@@ -48,7 +52,16 @@
                 "A-P Diameter of Vermis and Height of Vermis",
                 "Fronto-Occpitial"
             ]
-        }
+        },
+        "gear_log_level": {
+            "description": "The level at which the gear will log.",
+            "type": "string",
+            "enum": [
+                "INFO",
+                "DEBUG"
+            ],
+            "default": "INFO"
+        },
     },
     "environment": {
         "FLYWHEEL": "/flywheel/v0"

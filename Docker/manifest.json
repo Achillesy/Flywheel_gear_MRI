@@ -2,7 +2,7 @@
     "name": "fetal-brain",
     "label": "Fetal MRI Anatomy Measurement",
     "description": "Deep Learning Model for Automatic Fetal Brain Landmark Localization in MRI.",
-    "version": "0.4.3",
+    "version": "0.5.1f",
     "author": "Xuchu Liu",
     "maintainer": "xuchu_liu@rush.edu",
     "cite": "God loves All Beings",
@@ -20,18 +20,8 @@
         "generator": "I have a fly, I have a wheel. Uh! Fly-Wheel!"
     },
     "inputs": {
-        "input_sag": {
-            "base": "file",
-            "type": {
-                "enum": [
-                    "dicom.zip"
-                ]
-            },
-            "description": "Selected SAG series"
-        },
         "key": {
-            "base": "api-key",
-            "read-only": true
+            "base": "api-key"
         }
     },
     "config": {
@@ -61,7 +51,7 @@
                 "DEBUG"
             ],
             "default": "INFO"
-        },
+        }
     },
     "environment": {
         "FLYWHEEL": "/flywheel/v0"

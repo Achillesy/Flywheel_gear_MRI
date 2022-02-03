@@ -27,12 +27,14 @@ FROM ahsoka/tensorflow-rush:0.2.0
 ENV FLYWHEEL=/flywheel/v0
 
 COPY analyze_infocsv.py ${FLYWHEEL}/analyze_infocsv.py
-COPY dicom2img.py ${FLYWHEEL}/dicom2img.py
+COPY dicom_img.py ${FLYWHEEL}/dicom_img.py
 COPY fetal_brain_predict.py ${FLYWHEEL}/fetal_brain_predict.py
 COPY manifest.json ${FLYWHEEL}/manifest.json
+COPY ohifimport.py ${FLYWHEEL}/ohifimport.py
 COPY pyconfiguration.json ${FLYWHEEL}/pyconfiguration.json
 COPY run ${FLYWHEEL}/run
 RUN  chmod +x ${FLYWHEEL}/run
+COPY unzip_dicom.py ${FLYWHEEL}/unzip_dicom.py
 
 # WORKDIR ${FLYWHEEL}
 # ENTRYPOINT ["sh", "-c", "ls -al $FLYWHEEL"]

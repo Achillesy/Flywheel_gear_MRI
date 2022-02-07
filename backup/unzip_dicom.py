@@ -9,7 +9,6 @@
 import os
 import sys
 import logging
-import zipfile
 
 import flywheel
 import flywheel_gear_toolkit as gt
@@ -43,10 +42,11 @@ if __name__ == '__main__':
             raise Exception("Invalid gear destination")
 
         # Get the destination group/project
-        # fw = flywheel.Client(api_key)
-        # dest_handle = fw.get(cur_dest['id'])
-        # cur_session = fw.get_session(dest_handle.parents.session)
-        cur_session = context.get_destination_parent()
+        fw = flywheel.Client(api_key)
+        dest_handle = fw.get(cur_dest['id'])
+        # log.debug(dest_handle)
+        # session_id = fw.get_project(dest_handle.parents.session)
+        cur_session = fw.get_session(dest_handle.parents.session)
         log.debug(f'working in session {cur_session.label}')
 
         # destination = context.get_destination_parent() # Will be session if analysis is run at session as is default
@@ -56,17 +56,14 @@ if __name__ == '__main__':
         for acquisition in acquisitions:
             # Assume only one file per acquisition, could filter for dicom files if needed
             file_ = acquisition.files[0]
-            file_name_upper = file_.name.upper()
-            if ("SAG" in file_name_upper) and (file_name_upper.endswith(".ZIP")):
-                # Create a destinatino directory for this acqusitions file
-                acq_dir = os.path.join(work_dir, acquisition.label)
-                os.makedirs(acq_dir)
-                # Download file
-                acq_file = os.path.join(acq_dir, file_.name)
-                file_.download(acq_file)
-                # Unzip if necessary
-                with zipfile.ZipFile(acq_file, 'r') as zip_ref:
-                    zip_ref.extractall(acq_dir)
+            # Create a destinatino directory for this acqusitions file
+            acq_dir = os.path.join(work_dir, acquisition.label)
+            os.makedirs(acq_dir)
+            # Download file
+            acq_file = os.path.join(acq_dir, file_.name)
+            log.debug(acq_file)
+            #file_.download(acq_file)
+            # Unzip if necessary
     except Exception as e:
         log.exception(e)
         exit_status = 1

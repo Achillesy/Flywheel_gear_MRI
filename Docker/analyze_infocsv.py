@@ -430,7 +430,7 @@ if __name__ == "__main__":
         print(line)
     if measure.find("All") == 0:
         reportName = os.path.join(output_path, "AI_all_report.txt")
-        jsonName = os.path.join(output_path, "AI_all_report.json")
+        jsonName = os.path.join(output_path, ".metadata.json")
     if measure.find("Pons") > 0:
         reportName = os.path.join(output_path, "AI_pons_report.txt")
         jsonName = os.path.join(output_path, "AI_pons_report.json")

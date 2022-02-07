@@ -21,15 +21,6 @@ cd $FLYWHEEL_BASE
 # cat $FLYWHEEL_BASE/config.json
 
 ###############################################################################
-## unzip input_sag
-# INPUT_ZIP_FILE=$(cat config.json | jq -r '.inputs.input_sag.location.path')
-# rm -rf /tmp/DZIP
-# unzip -joq "$INPUT_ZIP_FILE" -d /tmp/DZIP
-# if [[ $? != 0 ]]; then
-#   echo -e "Problem encountered during unzip INPUT_ZIP_FILE!"
-#   exit 1
-# fi
-
 rm -rf /tmp/DZIP
 mkdir /tmp/DZIP
 echo -e "python unzip_dicom.py"
@@ -40,10 +31,10 @@ if [[ $? != 0 ]]; then
   exit 1
 fi
 
-# show unzip result
-chmod -R 777 /tmp/DZIP
-echo -e "=== list input dicom ==="
-tree /tmp/DZIP
+# # show unzip result
+# chmod -R 777 /tmp/DZIP
+# echo -e "=== list input dicom ==="
+# tree /tmp/DZIP
 
 ###############################################################################
 echo -e "=== Prepare for dicom images ... ==="
@@ -56,29 +47,29 @@ if [[ $? != 0 ]]; then
   echo -e "Problem encountered during save dicom as images!"
   exit 1
 fi
-tree /tmp/DIMG
+# tree /tmp/DIMG
 # cat $OUTPUT_DIR/info.csv
 echo -e "=== Prepare for dicom images Done! ==="
 
 ###############################################################################
 echo -e "=== Fetal MRI Anatomy Measurement ... ==="
 echo -e "python fetal_brain_predict.py"
-# python fetal_brain_predict.py
-# # Check status code and die
-# if [[ $? != 0 ]]; then
-#   echo -e "Problem encountered during measurement!"
-#   exit 1
-# fi
+python fetal_brain_predict.py
+# Check status code and die
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during measurement!"
+  exit 1
+fi
 # cat $OUTPUT_DIR/info.csv
 echo -e "=== Fetal MRI Anatomy Measurement Done! ==="
 
 ###############################################################################
 echo -e "=== Analysis of measurement results ... ==="
 echo -e "python analyze_infocsv.py"
-# python analyze_infocsv.py
-# # Check status code and die
-# if [[ $? != 0 ]]; then
-#   echo -e "Problem encountered during analysis!"
-#   exit 1
-# fi
+python analyze_infocsv.py
+# Check status code and die
+if [[ $? != 0 ]]; then
+  echo -e "Problem encountered during analysis!"
+  exit 1
+fi
 echo -e "=== Analysis of measurement results Done! ==="

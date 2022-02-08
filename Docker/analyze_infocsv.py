@@ -16,6 +16,8 @@ import pandas as pd
 import cv2
 import json
 
+import flywheel_gear_toolkit as gt
+
 image_path = "/tmp/DIMG"
 flywheel_path = "/flywheel/v0"
 output_path = "/flywheel/v0/output"
@@ -430,20 +432,15 @@ if __name__ == "__main__":
         print(line)
     if measure.find("All") == 0:
         reportName = os.path.join(output_path, "AI_all_report.txt")
-        jsonName = os.path.join(output_path, ".metadata.json")
     if measure.find("Pons") > 0:
         reportName = os.path.join(output_path, "AI_pons_report.txt")
-        jsonName = os.path.join(output_path, "AI_pons_report.json")
     if measure.find("Vermis") > 0:
         reportName = os.path.join(output_path, "AI_vermis_report.txt")
-        jsonName = os.path.join(output_path, "AI_vermis_report.json")
     if measure.find("Fronto") == 0:
         reportName = os.path.join(output_path, "AI_fronto_report.txt")
-        jsonName = os.path.join(output_path, "AI_fronto_report.json")
     f = open(reportName, "w")
     f.writelines(reportList)
     f.close()
 
-    with open(jsonName, "w") as f:
-        json.dump(jsonOHIF,f)
-
+    with gt.GearToolkitContext() as context:
+        context.update_container_metadata('session', jsonOHIF)

@@ -249,8 +249,10 @@ if __name__ == "__main__":
     abnormalColor = (60, 60, 250)
     reportList = []
     jsonOHIF = {
-        "measurements": {
-            "Length": []
+        "ohifViewer": {
+            "measurements": {
+                "Length": []
+            }
         }
     }
 

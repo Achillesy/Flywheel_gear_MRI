@@ -445,4 +445,4 @@ if __name__ == "__main__":
     f.close()
 
     with gt.GearToolkitContext() as context:
-        context.update_container_metadata('session', jsonOHIF)
+        context.update_container_metadata('session', {'info': jsonOHIF})

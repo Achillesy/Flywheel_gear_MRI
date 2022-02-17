@@ -1,0 +1,89 @@
+{
+    "_id": "e3eb16ca-26ad-0e68-5ae4-30426320b2ff",
+    "_measurementServiceId": "bb63f049-62f8-e01d-9bf7-faaaf59c9f43",
+    "active": false,
+    "color": "rgba(244,67,54,0.2)",
+    "description": "Pons",
+    "flywheelOrigin": {
+        "id": "Xuchu_Liu@rush.edu",
+        "type": "user"
+    },
+    "frameIndex": 0,
+    "handles": {
+        "end": {
+            "active": false,
+            "highlight": true,
+            "moving": false,
+            "x": 174.73525721455457,
+            "y": 246.0426599749059
+        },
+        "start": {
+            "active": false,
+            "highlight": true,
+            "x": 185.01380175658716,
+            "y": 224.20075282308656
+        },
+        "textBox": {
+            "active": false,
+            "allowedOutsideImage": true,
+            "boundingBox": {
+                "height": 25,
+                "left": 487.99999999999994,
+                "top": 336.5,
+                "width": 73.171875
+            },
+            "drawnIndependently": true,
+            "hasBoundingBox": true,
+            "hasMoved": false,
+            "movesIndependently": false,
+            "x": 185.01380175658716,
+            "y": 224.20075282308656
+        }
+    },
+    "imagePath": "1.3.6.1.4.1.9590.100.1.2.12974746613731427721459401343723795747$$$1.3.6.1.4.1.9590.100.1.2.115418603911678096403671340942587057569$$$1.3.6.1.4.1.9590.100.1.2.331014090311122473517462941741836452430$$$0",
+    "invalidated": false,
+    "length": 9.42950776815856,
+    "lesionNamingNumber": 1,
+    "location": "Brain",
+    "measurementNumber": 1,
+    "sliceNumber": 7,
+    "PatientID": "dc13e4c0-b2eb-4cf6-b981-7d19d34f6a84",
+    "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.331014090311122473517462941741836452430",
+    "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.115418603911678096403671340942587057569",
+    "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.12974746613731427721459401343723795747",
+    "timepointId": "TimepointId",
+    "toolType": "Length",
+    "userId": "NONE",
+    "uuid": "3250fe58-2433-485c-8390-98e4e56df0f2",
+    "viewport": {
+        "displayedArea": {
+            "brhc": {
+                "x": 512,
+                "y": 512
+            },
+            "columnPixelSpacing": 0.390625,
+            "presentationSizeMode": "NONE",
+            "rowPixelSpacing": 0.390625,
+            "tlhc": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "hflip": false,
+        "invert": false,
+        "labelmap": false,
+        "pixelReplication": false,
+        "rotation": 0,
+        "scale": 1.556640625,
+        "translation": {
+            "x": 0,
+            "y": 0
+        },
+        "vflip": false,
+        "voi": {
+            "windowCenter": 349.65234375,
+            "windowWidth": 712.169921875
+        }
+    },
+    "visible": true
+}

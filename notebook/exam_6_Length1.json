@@ -1,0 +1,88 @@
+{
+    "_id": "077f2eaf-b45b-7e08-50fd-4bff4d9dec4c",
+    "_measurementServiceId": "84bbf406-f97c-7628-8d80-15d43c48d532",
+    "active": true,
+    "description": "A-P Diameter of Vermis",
+    "flywheelOrigin": {
+        "id": "Xuchu_Liu@rush.edu",
+        "type": "user"
+    },
+    "frameIndex": 0,
+    "handles": {
+        "end": {
+            "active": false,
+            "hasMoved": true,
+            "highlight": true,
+            "moving": false,
+            "x": 319.1232876712329,
+            "y": 293.9377334993773
+        },
+        "start": {
+            "active": false,
+            "highlight": true,
+            "x": 294.8941469489414,
+            "y": 272.8966376089664
+        },
+        "textBox": {
+            "active": false,
+            "allowedOutsideImage": true,
+            "boundingBox": {
+                "height": 25,
+                "left": 854,
+                "top": 448.49999999999994,
+                "width": 82.15625
+            },
+            "drawnIndependently": true,
+            "hasBoundingBox": true,
+            "hasMoved": false,
+            "movesIndependently": false,
+            "x": 319.1232876712329,
+            "y": 293.9377334993773
+        }
+    },
+    "imagePath": "1.3.6.1.4.1.9590.100.1.2.180543353611215162910272065452027800503$$$1.3.6.1.4.1.9590.100.1.2.130377455213163172923829280602461082065$$$1.3.6.1.4.1.9590.100.1.2.197421330710515726636997467353007484258$$$0",
+    "invalidated": false,
+    "length": 12.535222447981708,
+    "lesionNamingNumber": 2,
+    "location": "Brain",
+    "measurementNumber": 2,
+    "PatientID": "5052559a-0519-4d4b-a5c5-bedf7ee9af0f",
+    "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.130377455213163172923829280602461082065",
+    "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.197421330710515726636997467353007484258",
+    "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.180543353611215162910272065452027800503",
+    "timepointId": "TimepointId",
+    "toolType": "Length",
+    "userId": "",
+    "uuid": "dbdd82df-74d0-4144-8d83-62bdd8980bda",
+    "viewport": {
+        "displayedArea": {
+            "brhc": {
+                "x": 512,
+                "y": 512
+            },
+            "columnPixelSpacing": 0.390625,
+            "presentationSizeMode": "NONE",
+            "rowPixelSpacing": 0.390625,
+            "tlhc": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "hflip": false,
+        "invert": false,
+        "labelmap": false,
+        "pixelReplication": false,
+        "rotation": 0,
+        "scale": 1.568359375,
+        "translation": {
+            "x": 0,
+            "y": 0
+        },
+        "vflip": false,
+        "voi": {
+            "windowCenter": 426,
+            "windowWidth": 888
+        }
+    },
+    "visible": true
+}

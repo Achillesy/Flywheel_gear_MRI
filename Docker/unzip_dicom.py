@@ -11,7 +11,6 @@ import sys
 import logging
 import zipfile
 
-import flywheel
 import flywheel_gear_toolkit as gt
 
 log = logging.getLogger()
@@ -24,9 +23,9 @@ if __name__ == '__main__':
         config = context.config
 
         # Examine the inputs for the "api-key" token and extract it
-        for inp in context.config_json["inputs"].values():
-            if inp["base"] == "api-key" and inp["key"]:
-                api_key = inp["key"]
+        # for inp in context.config_json["inputs"].values():
+        #     if inp["base"] == "api-key" and inp["key"]:
+        #         api_key = inp["key"]
 
         # Setup basic logging and log the configuration for this job
         if config["gear_log_level"] == "INFO":
@@ -36,11 +35,11 @@ if __name__ == '__main__':
         context.log_config()
 
         # Check to make sure we have a valid destination container for this gear.
-        cur_dest = context.destination
-        cur_dest_level = cur_dest.get("type")
-        if cur_dest_level is None:
-            log.error(f"invalid destination {cur_dest_level}")
-            raise Exception("Invalid gear destination")
+        # cur_dest = context.destination
+        # cur_dest_level = cur_dest.get("type")
+        # if cur_dest_level is None:
+        #     log.error(f"invalid destination {cur_dest_level}")
+        #     raise Exception("Invalid gear destination")
 
         # Get the destination group/project
         # fw = flywheel.Client(api_key)
@@ -59,7 +58,8 @@ if __name__ == '__main__':
             file_name_upper = file_.name.upper()
             if ("SAG" in file_name_upper) and (file_name_upper.endswith(".ZIP")):
                 # Create a destinatino directory for this acqusitions file
-                acq_dir = os.path.join(work_dir, acquisition.label)
+                # acq_dir = os.path.join(work_dir, acquisition.label)
+                acq_dir = os.path.join(work_dir, file_.file_id)
                 os.makedirs(acq_dir)
                 # Download file
                 acq_file = os.path.join(acq_dir, file_.name)

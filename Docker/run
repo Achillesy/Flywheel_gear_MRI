@@ -48,7 +48,7 @@ if [[ $? != 0 ]]; then
   exit 1
 fi
 # tree /tmp/DIMG
-# cat $OUTPUT_DIR/info.csv
+cat $OUTPUT_DIR/info.csv
 echo -e "=== Prepare for dicom images Done! ==="
 
 ###############################################################################

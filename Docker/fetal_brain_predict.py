@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 
 import tensorflow as tf
-from pylib import build_unet, gravitycenter
+from pylib import build_unet
 
 image_path  = "/tmp/DIMG"
 flywheel_path  = "/flywheel/v0"

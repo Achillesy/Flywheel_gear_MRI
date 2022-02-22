@@ -17,6 +17,7 @@ import cv2
 import json
 
 import flywheel_gear_toolkit as gt
+from OHIF_Template import OHIF
 
 image_path = "/tmp/DIMG"
 flywheel_path = "/flywheel/v0"
@@ -444,5 +445,6 @@ if __name__ == "__main__":
     f.writelines(reportList)
     f.close()
 
-    with gt.GearToolkitContext() as context:
-        context.update_container_metadata('session', {'info': jsonOHIF})
+    context = gt.GearToolkitContext()
+    ohifViewer = OHIF.OHIF(context)
+    context.update_container_metadata('session', {'info': ohifViewer.to_json()})

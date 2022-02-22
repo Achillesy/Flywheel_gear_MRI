@@ -27,6 +27,9 @@ def saveImgAndInfo(name, ds):
     info = {}
     info['Id'] = "%s_%04d_%04d" % (ds.AccessionNumber, ds.SeriesNumber, ds.InstanceNumber)
     info['DicomPath'] = name
+    dir_name = os.path.dirname(name)
+    base_name = os.path.basename(dir_name)
+    info['file_id'] = base_name
     try:
         info['PatientName'] = ds.PatientName
     except:

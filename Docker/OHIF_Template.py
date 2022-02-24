@@ -95,7 +95,7 @@ class OHIF:
         user = flywheel.get_current_user()
         Lens_Length["flywheelOrigin"]["id"]  = user.id
 
-        lens_file = flywheel.get_file('621512dcb5c1475bf2a3f7ff')
+        lens_file = flywheel.get_file(file_id)
         Lens_Length["SeriesInstanceUID"] = lens_file["info"]["SeriesInstanceUID"]
         Lens_Length["SOPInstanceUID"] = lens_file["info"]["SOPInstanceUID"]
         Lens_Length["StudyInstanceUID"] = lens_file["info"]["StudyInstanceUID"]

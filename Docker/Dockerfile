@@ -31,7 +31,7 @@ COPY analyze_infocsv.py ${FLYWHEEL}/analyze_infocsv.py
 COPY dicom_img.py ${FLYWHEEL}/dicom_img.py
 COPY fetal_brain_predict.py ${FLYWHEEL}/fetal_brain_predict.py
 COPY manifest.json ${FLYWHEEL}/manifest.json
-COPY ohifimport.py ${FLYWHEEL}/ohifimport.py
+COPY OHIF_Template.py ${FLYWHEEL}/OHIF_Template.py
 COPY pyconfiguration.json ${FLYWHEEL}/pyconfiguration.json
 COPY run ${FLYWHEEL}/run
 RUN  chmod +x ${FLYWHEEL}/run

@@ -8,14 +8,13 @@
 # \date       1/11/2021
 
 import os
-import flywheel
 
 import numpy as np
 import pandas as pd
 
 import cv2
-import json
 
+import flywheel
 import flywheel_gear_toolkit as gt
 from OHIF_Template import OHIF
 
@@ -24,6 +23,7 @@ flywheel_path = "/flywheel/v0"
 output_path = "/flywheel/v0/output"
 
 img_size = 512
+
 
 def checkPons(sizePons, weeks):
     b_Pons = False
@@ -65,6 +65,7 @@ def checkPons(sizePons, weeks):
         if sizePons > 18 and sizePons < 20:
             b_Pons = True
     return b_Pons, normalPonsText
+
 
 def checkVermis(sizeVermis, weeks):
     b_Vermis = False
@@ -123,6 +124,7 @@ def checkVermis(sizeVermis, weeks):
             b_Vermis = True
     return b_Vermis, normalVermisText
 
+
 def checkHVermis(sizeHVermis, weeks):
     b_HVermis = False
     normalHVermisText = "Unknown"
@@ -179,6 +181,7 @@ def checkHVermis(sizeHVermis, weeks):
         if sizeHVermis > 16 and sizeHVermis < 29:
             b_HVermis = True
     return b_HVermis, normalHVermisText
+
 
 def checkFronto(sizeFronto, weeks):
     b_Fronto = False
@@ -237,11 +240,21 @@ def checkFronto(sizeFronto, weeks):
             b_Fronto = True
     return b_Fronto, normalFrontoText
 
+
 if __name__ == "__main__":
-    context = flywheel.GearContext()
+    context = gt.GearToolkitContext()
     config = context.config
     measure = config["Measurement"]
     weeks = config["GE"]
+
+    for inp in context.config_json["inputs"].values():
+        if inp["base"] == "api-key" and inp["key"]:
+            api_key = inp["key"]
+    cur_dest = context.destination
+    fw = flywheel.Client(api_key)
+    dest_handle = fw.get(cur_dest["id"])
+    cur_session = fw.get_session(dest_handle.parents.session)
+    ohifViewer = OHIF(cur_session)
 
     info_csv = os.path.join(output_path, "info.csv")
     df_instance = pd.read_csv(info_csv)
@@ -249,13 +262,6 @@ if __name__ == "__main__":
     normalColor = (250, 250, 250)
     abnormalColor = (60, 60, 250)
     reportList = []
-    jsonOHIF = {
-        "ohifViewer": {
-            "measurements": {
-                "Length": []
-            }
-        }
-    }
 
     data = df_instance.iloc[0]
     txtLine = "PatientName: %s\n" % (data["PatientName"])
@@ -266,7 +272,10 @@ if __name__ == "__main__":
     reportList.append(txtLine)
     txtLine = "       Width: %d pixels\n" % (data["Columns"])
     reportList.append(txtLine)
-    txtLine = "PixelSpacing: [%f, %f]\n\n" % (data["PixelSpacing1"], data["PixelSpacing2"])
+    txtLine = "PixelSpacing: [%f, %f]\n\n" % (
+        data["PixelSpacing1"],
+        data["PixelSpacing2"],
+    )
     reportList.append(txtLine)
 
     if measure.find("All") == 0 or measure.find("Pons") > 0:
@@ -292,9 +301,14 @@ if __name__ == "__main__":
 
         resultPonsLine = "A-P Diameter of Pons: %.2fmm %s" % (mmPons, resultPonsText)
         reportList.append(resultPonsLine)
-        txtLine      = "\n        normal range: (%s)\n" % (normalPonsText)
+        txtLine = "\n        normal range: (%s)\n" % (normalPonsText)
         reportList.append(txtLine)
-        txtLine      = "            coordinate: [%3d %3d] [%3d %3d]\n" % (Pons_1x, Pons_1y, Pons_2x, Pons_2y)
+        txtLine = "            coordinate: [%3d %3d] [%3d %3d]\n" % (
+            Pons_1x,
+            Pons_1y,
+            Pons_2x,
+            Pons_2y,
+        )
         reportList.append(txtLine)
         txtLine = "%s - confidence:%.1f%%\n" % (Pons_dcm, Pons_conf)
         reportList.append(txtLine)
@@ -302,17 +316,47 @@ if __name__ == "__main__":
         reportList.append(txtLine)
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
-    
+
         # Pons_dcm_name = os.path.join(output_path, Pons_dcm)
         # if not os.path.exists(Pons_dcm_name):
         #     os.system('cp ' + data.DicomPath + ' ' + Pons_dcm_name)
         Pons_name = os.path.join(output_path, Pons_img)
         if not os.path.exists(Pons_name):
-            os.system('cp /tmp/DIMG/' + Pons_img + ' ' + Pons_name)
+            os.system("cp /tmp/DIMG/" + Pons_img + " " + Pons_name)
         img = cv2.imread(Pons_name)
-        cv2.line(img, (Pons_1x,Pons_1y), (Pons_2x,Pons_2y), color=resultPonsColor, thickness = 2)
-        cv2.putText(img, resultPonsLine, (10,25), cv2.FONT_HERSHEY_COMPLEX, 0.6, resultPonsColor, 1)
+        cv2.line(
+            img,
+            (Pons_1x, Pons_1y),
+            (Pons_2x, Pons_2y),
+            color=resultPonsColor,
+            thickness=2,
+        )
+        cv2.putText(
+            img,
+            resultPonsLine,
+            (10, 25),
+            cv2.FONT_HERSHEY_COMPLEX,
+            0.6,
+            resultPonsColor,
+            1,
+        )
         cv2.imwrite(Pons_name, img)
+
+        dir_name = os.path.dirname(data.DicomPath)
+        file_id = os.path.basename(dir_name)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            mmPons,
+            resultPonsText,
+            resultPonsColor,
+            Pons_1x,
+            Pons_1y,
+            Pons_2x,
+            Pons_2y,
+            data["InstanceNumber"],
+            "Pons"
+        )
 
     if measure.find("All") == 0 or measure.find("Vermis") > 0:
         df_instance = df_instance.sort_values(by="deltaVermis", ascending=False)
@@ -336,11 +380,19 @@ if __name__ == "__main__":
         else:
             resultVermisText = "abnormal"
             resultVermisColor = abnormalColor
-        resultVermisLine = "A-P Diameter of Vermis: %.2fmm %s" % (mmVermis, resultVermisText)
+        resultVermisLine = "A-P Diameter of Vermis: %.2fmm %s" % (
+            mmVermis,
+            resultVermisText,
+        )
         reportList.append(resultVermisLine)
-        txtLine        = "\n          normal range: (%s)\n" % (normalVermisText)
+        txtLine = "\n          normal range: (%s)\n" % (normalVermisText)
         reportList.append(txtLine)
-        txtLine        = "            coordinate: [%3d %3d] \t [%3d %3d]\n" % (Vermis_1x, Vermis_1y, Vermis_2x, Vermis_2y)
+        txtLine = "            coordinate: [%3d %3d] \t [%3d %3d]\n" % (
+            Vermis_1x,
+            Vermis_1y,
+            Vermis_2x,
+            Vermis_2y,
+        )
         reportList.append(txtLine)
 
         HVermis_1x = int(data.HVermis_1x * data.Columns / img_size)
@@ -359,11 +411,19 @@ if __name__ == "__main__":
         else:
             resultHVermisText = "abnormal"
             resultHVermisColor = abnormalColor
-        resultHVermisLine = "Height of Vermis: %.2fmm %s" % (mmHVermis, resultHVermisText)
+        resultHVermisLine = "Height of Vermis: %.2fmm %s" % (
+            mmHVermis,
+            resultHVermisText,
+        )
         reportList.append(resultHVermisLine)
-        txtLine         = "\n    normal range: (%s)\n" % (normalHVermisText)
+        txtLine = "\n    normal range: (%s)\n" % (normalHVermisText)
         reportList.append(txtLine)
-        txtLine         = "        coordinate: [%3d %3d] [%3d %3d]\n" % (HVermis_1x, HVermis_1y, HVermis_2x, HVermis_2y)
+        txtLine = "        coordinate: [%3d %3d] [%3d %3d]\n" % (
+            HVermis_1x,
+            HVermis_1y,
+            HVermis_2x,
+            HVermis_2y,
+        )
         reportList.append(txtLine)
         txtLine = "%s - confidence:%.1f%%\n" % (Vermis_dcm, Vermis_conf)
         reportList.append(txtLine)
@@ -371,19 +431,76 @@ if __name__ == "__main__":
         reportList.append(txtLine)
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
-    
+
         # Vermis_dcm_name = os.path.join(output_path, Vermis_dcm)
         # if not os.path.exists(Vermis_dcm_name):
         #     os.system('cp ' + data.DicomPath + ' ' + Vermis_dcm_name)
         Vermis_name = os.path.join(output_path, Vermis_img)
         if not os.path.exists(Vermis_name):
-            os.system('cp /tmp/DIMG/' + Vermis_img + ' ' + Vermis_name)
+            os.system("cp /tmp/DIMG/" + Vermis_img + " " + Vermis_name)
         img = cv2.imread(Vermis_name)
-        cv2.line(img, (Vermis_1x,Vermis_1y), (Vermis_2x,Vermis_2y), color=resultVermisColor, thickness = 2)
-        cv2.putText(img, resultVermisLine, (10,50), cv2.FONT_HERSHEY_COMPLEX, 0.6, resultVermisColor, 1)
-        cv2.line(img, (HVermis_1x,HVermis_1y), (HVermis_2x,HVermis_2y), color=resultHVermisColor, thickness = 2)
-        cv2.putText(img, resultHVermisLine, (10,75), cv2.FONT_HERSHEY_COMPLEX, 0.6, resultHVermisColor, 1)
+        cv2.line(
+            img,
+            (Vermis_1x, Vermis_1y),
+            (Vermis_2x, Vermis_2y),
+            color=resultVermisColor,
+            thickness=2,
+        )
+        cv2.putText(
+            img,
+            resultVermisLine,
+            (10, 50),
+            cv2.FONT_HERSHEY_COMPLEX,
+            0.6,
+            resultVermisColor,
+            1,
+        )
+        cv2.line(
+            img,
+            (HVermis_1x, HVermis_1y),
+            (HVermis_2x, HVermis_2y),
+            color=resultHVermisColor,
+            thickness=2,
+        )
+        cv2.putText(
+            img,
+            resultHVermisLine,
+            (10, 75),
+            cv2.FONT_HERSHEY_COMPLEX,
+            0.6,
+            resultHVermisColor,
+            1,
+        )
         cv2.imwrite(Vermis_name, img)
+
+        dir_name = os.path.dirname(data.DicomPath)
+        file_id = os.path.basename(dir_name)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            mmVermis,
+            resultVermisText,
+            resultVermisColor,
+            Vermis_1x,
+            Vermis_1y,
+            Vermis_2x,
+            Vermis_2y,
+            data["InstanceNumber"],
+            "Vermis"
+        )
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            mmHVermis,
+            resultHVermisText,
+            resultHVermisColor,
+            HVermis_1x,
+            HVermis_1y,
+            HVermis_2x,
+            HVermis_2y,
+            data["InstanceNumber"],
+            "HVermis"
+        )
 
     if measure.find("All") == 0 or measure.find("Fronto") == 0:
         df_instance = df_instance.sort_values(by="deltaFronto", ascending=False)
@@ -409,9 +526,14 @@ if __name__ == "__main__":
 
         resultFrontoLine = "Fronto-Occpitial: %.2fmm %s" % (mmFronto, resultFrontoText)
         reportList.append(resultFrontoLine)
-        txtLine        = "\n    normal range: (%s)\n" % (normalFrontoText)
+        txtLine = "\n    normal range: (%s)\n" % (normalFrontoText)
         reportList.append(txtLine)
-        txtLine        = "        coordinate: [%3d %3d] [%3d %3d]\n" % (Fronto_1x, Fronto_1y, Fronto_2x, Fronto_2y)
+        txtLine = "        coordinate: [%3d %3d] [%3d %3d]\n" % (
+            Fronto_1x,
+            Fronto_1y,
+            Fronto_2x,
+            Fronto_2y,
+        )
         reportList.append(txtLine)
         txtLine = "%s - confidence:%.1f%%\n" % (Fronto_img, Fronto_conf)
         reportList.append(txtLine)
@@ -419,17 +541,44 @@ if __name__ == "__main__":
         reportList.append(txtLine)
         txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
         reportList.append(txtLine)
-    
+
         # Fronto_dcm_name = os.path.join(output_path, Fronto_dcm)
         # if not os.path.exists(Fronto_dcm_name):
         #     os.system('cp ' + data.DicomPath + ' ' + Fronto_dcm_name)
         Fronto_name = os.path.join(output_path, Fronto_img)
         if not os.path.exists(Fronto_name):
-            os.system('cp /tmp/DIMG/' + Fronto_img + ' ' + Fronto_name)
+            os.system("cp /tmp/DIMG/" + Fronto_img + " " + Fronto_name)
         img = cv2.imread(Fronto_name)
-        cv2.line(img, (Fronto_1x,Fronto_1y), (Fronto_2x,Fronto_2y), color=resultFrontoColor, thickness = 2)
-        cv2.putText(img, resultFrontoLine, (10,100), cv2.FONT_HERSHEY_COMPLEX, 0.6, resultFrontoColor, 1)
+        cv2.line(
+            img,
+            (Fronto_1x, Fronto_1y),
+            (Fronto_2x, Fronto_2y),
+            color=resultFrontoColor,
+            thickness=2,
+        )
+        cv2.putText(
+            img,
+            resultFrontoLine,
+            (10, 100),
+            cv2.FONT_HERSHEY_COMPLEX,
+            0.6,
+            resultFrontoColor,
+            1,
+        )
         cv2.imwrite(Fronto_name, img)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            mmFronto,
+            resultFrontoText,
+            resultFrontoColor,
+            Fronto_1x,
+            Fronto_1y,
+            Fronto_2x,
+            Fronto_2y,
+            data["InstanceNumber"],
+            "Fronto"
+        )
 
     for line in reportList:
         print(line)
@@ -445,6 +594,4 @@ if __name__ == "__main__":
     f.writelines(reportList)
     f.close()
 
-    context = gt.GearToolkitContext()
-    ohifViewer = OHIF.OHIF(context)
-    context.update_container_metadata('session', {'info': ohifViewer.to_json()})
+    ohifViewer.update()

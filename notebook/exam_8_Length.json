@@ -1,0 +1,310 @@
+[
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+        "_id": "d513bc3b-d899-1703-9f0e-fbb5c0de8a62",
+        "active": false,
+        "color": "rgba(250,60,60,0.2)",
+        "description": "abnormal - Pons",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 228,
+                "y": 172
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 205,
+                "y": 199
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "boundingBox": {
+                    "height": 25,
+                    "left": 553.4375,
+                    "top": 264.3125,
+                    "width": 82.15625
+                },
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 228,
+                "y": 172
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017$$$0",
+        "invalidated": false,
+        "length": 13.85,
+        "lesionNamingNumber": 1,
+        "location": "Brain",
+        "measurementNumber": 1,
+        "sliceNumber": 9,
+        "timepointId": "TimepointId",
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+        "_id": "82a2386b-0657-cfc3-6730-02ff7babdda9",
+        "active": false,
+        "color": "rgba(250,60,60,0.2)",
+        "description": "abnormal - Vermis",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 196,
+                "y": 203
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 159,
+                "y": 231
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "boundingBox": {
+                    "height": 25,
+                    "left": 501.9375,
+                    "top": 314.203125,
+                    "width": 82.15625
+                },
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 196,
+                "y": 203
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017$$$0",
+        "invalidated": false,
+        "length": 18.13,
+        "lesionNamingNumber": 2,
+        "location": "Brain",
+        "measurementNumber": 2,
+        "sliceNumber": 10,
+        "timepointId": "TimepointId",
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+        "_id": "3d3fe0e5-bb8a-7a8e-0d00-96566abffe50",
+        "active": false,
+        "color": "rgba(250,60,60,0.2)",
+        "description": "abnormal - HVermis",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 204,
+                "y": 225
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 170,
+                "y": 194
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "boundingBox": {
+                    "height": 25,
+                    "left": 514.8125,
+                    "top": 349.609375,
+                    "width": 82.15625
+                },
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 204,
+                "y": 225
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017$$$0",
+        "invalidated": false,
+        "length": 17.97,
+        "lesionNamingNumber": 3,
+        "location": "Brain",
+        "measurementNumber": 3,
+        "sliceNumber": 10,
+        "timepointId": "TimepointId",
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+        "_id": "ec68df02-a91d-8400-330b-6f04cd9e7051",
+        "active": false,
+        "color": "rgba(250,60,60,0.2)",
+        "description": "abnormal - Fronto",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 345,
+                "y": 132
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 169,
+                "y": 319
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "boundingBox": {
+                    "height": 25,
+                    "left": 741.734375,
+                    "top": 199.9375,
+                    "width": 91.140625
+                },
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 345,
+                "y": 132
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.35510585110589518029404901324156570017$$$0",
+        "invalidated": false,
+        "length": 100.31,
+        "lesionNamingNumber": 4,
+        "location": "Brain",
+        "measurementNumber": 4,
+        "sliceNumber": 10,
+        "timepointId": "TimepointId",
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.91594685712295516830227987760747367067",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+        "_id": "6d2f377a-3553-55e9-85c0-9b840bde715f",
+        "_measurementServiceId": "35a828e9-f970-ad44-b7a1-818396a2dd36",
+        "active": true,
+        "color": "rgba(244, 67, 54, 0.2)",
+        "description": "manully",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 151.92233009708735,
+                "y": 305.08737864077665
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 337.70873786407765,
+                "y": 121.16504854368931
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "boundingBox": {
+                    "height": 25,
+                    "left": 730,
+                    "top": 182.49999999999997,
+                    "width": 91.140625
+                },
+                "drawnIndependently": true,
+                "hasBoundingBox": true,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 337.70873786407765,
+                "y": 121.16504854368931
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.91594685712295516830227987760747367067$$$0",
+        "invalidated": false,
+        "length": 102.11987442680105,
+        "lesionNamingNumber": 5,
+        "location": "Brain",
+        "measurementNumber": 5,
+        "sliceNumber": 10,
+        "timepointId": "TimepointId",
+        "toolType": "Length",
+        "userId": "",
+        "uuid": "dc9985fd-3e7a-4993-8ed2-e16bc1434f01",
+        "viewport": {
+            "displayedArea": {
+                "brhc": {
+                    "x": 512,
+                    "y": 512
+                },
+                "columnPixelSpacing": 0.390625,
+                "presentationSizeMode": "NONE",
+                "rowPixelSpacing": 0.390625,
+                "tlhc": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "hflip": false,
+            "invert": false,
+            "labelmap": false,
+            "pixelReplication": false,
+            "rotation": 0,
+            "scale": 1.609375,
+            "translation": {
+                "x": 0,
+                "y": 0
+            },
+            "vflip": false,
+            "voi": {
+                "windowCenter": 276,
+                "windowWidth": 617
+            }
+        },
+        "visible": true
+    }
+]

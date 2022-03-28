@@ -1,0 +1,88 @@
+{
+    "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.91594685712295516830227987760747367067",
+    "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051",
+    "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180",
+    "_id": "0410be0c-e887-4796-983e-d9b48cdeaec4",
+    "_measurementServiceId": "a5c8a019-9e03-3459-f749-f4698fd8602f",
+    "active": false,
+    "color": "rgba(244, 67, 54, 0.2)",
+    "description": "",
+    "flywheelOrigin": {
+        "id": "Xuchu_Liu@rush.edu",
+        "type": "user"
+    },
+    "frameIndex": 0,
+    "handles": {
+        "end": {
+            "active": false,
+            "highlight": true,
+            "moving": false,
+            "x": 222.75728155339806,
+            "y": 173.98058252427182
+        },
+        "start": {
+            "active": false,
+            "highlight": true,
+            "x": 204.11650485436888,
+            "y": 198.21359223300968
+        },
+        "textBox": {
+            "active": false,
+            "allowedOutsideImage": true,
+            "boundingBox": {
+                "height": 25,
+                "left": 545,
+                "top": 267.49999999999994,
+                "width": 82.15625
+            },
+            "drawnIndependently": true,
+            "hasBoundingBox": true,
+            "hasMoved": false,
+            "movesIndependently": false,
+            "x": 222.75728155339806,
+            "y": 173.98058252427182
+        }
+    },
+    "imagePath": "1.3.6.1.4.1.9590.100.1.2.103281293213604980826658088041392670180$$$1.3.6.1.4.1.9590.100.1.2.201485845713863610117771759663645974051$$$1.3.6.1.4.1.9590.100.1.2.91594685712295516830227987760747367067$$$0",
+    "invalidated": false,
+    "length": 11.942635534118983,
+    "lesionNamingNumber": 6,
+    "location": "Brain",
+    "measurementNumber": 6,
+    "sliceNumber": 9,
+    "timepointId": "TimepointId",
+    "toolType": "Length",
+    "userId": null,
+    "uuid": "f44f6c2a-defb-4b0f-a2d3-c3c387a777c0",
+    "viewport": {
+        "displayedArea": {
+            "brhc": {
+                "x": 512,
+                "y": 512
+            },
+            "columnPixelSpacing": 0.390625,
+            "presentationSizeMode": "NONE",
+            "rowPixelSpacing": 0.390625,
+            "tlhc": {
+                "x": 1,
+                "y": 1
+            }
+        },
+        "hflip": false,
+        "invert": false,
+        "labelmap": false,
+        "pixelReplication": false,
+        "rotation": 0,
+        "scale": 1.609375,
+        "translation": {
+            "x": 0,
+            "y": 0
+        },
+        "vflip": false,
+        "voi": {
+            "windowCenter": 276,
+            "windowWidth": 617
+        }
+    },
+    "visible": true
+}

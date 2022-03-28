@@ -1,0 +1,190 @@
+[
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+        "active": false,
+        "color": "rgba(250,250,250,0.2)",
+        "description": "normal - Pons",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 238,
+                "y": 264
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 266,
+                "y": 267
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 266,
+                "y": 267
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+        "invalidated": false,
+        "length": 8.8,
+        "lesionNamingNumber": 1,
+        "location": "Brain",
+        "measurementNumber": 1,
+        "sliceNumber": 9,
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+        "active": false,
+        "color": "rgba(250,60,60,0.2)",
+        "description": "abnormal - Vermis",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 274,
+                "y": 267
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 297,
+                "y": 271
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 297,
+                "y": 271
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+        "invalidated": false,
+        "length": 7.3,
+        "lesionNamingNumber": 2,
+        "location": "Brain",
+        "measurementNumber": 2,
+        "sliceNumber": 9,
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+        "active": false,
+        "color": "rgba(250,250,250,0.2)",
+        "description": "normal - HVermis",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 280,
+                "y": 255
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 283,
+                "y": 289
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 283,
+                "y": 289
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+        "invalidated": false,
+        "length": 10.67,
+        "lesionNamingNumber": 3,
+        "location": "Brain",
+        "measurementNumber": 3,
+        "sliceNumber": 9,
+        "toolType": "Length",
+        "visible": true
+    },
+    {
+        "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+        "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+        "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+        "active": false,
+        "color": "rgba(250,250,250,0.2)",
+        "description": "normal - Fronto",
+        "flywheelOrigin": {
+            "id": "Xuchu_Liu@rush.edu",
+            "type": "user"
+        },
+        "frameIndex": 0,
+        "handles": {
+            "end": {
+                "active": false,
+                "highlight": true,
+                "moving": false,
+                "x": 146,
+                "y": 206
+            },
+            "start": {
+                "active": false,
+                "highlight": true,
+                "x": 351,
+                "y": 239
+            },
+            "textBox": {
+                "active": false,
+                "allowedOutsideImage": true,
+                "drawnIndependently": true,
+                "hasBoundingBox": false,
+                "hasMoved": false,
+                "movesIndependently": false,
+                "x": 351,
+                "y": 239
+            }
+        },
+        "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+        "invalidated": false,
+        "length": 64.89,
+        "lesionNamingNumber": 4,
+        "location": "Brain",
+        "measurementNumber": 4,
+        "sliceNumber": 9,
+        "toolType": "Length",
+        "visible": true
+    }
+]

@@ -14,9 +14,9 @@ import pandas as pd
 
 import cv2
 
-# import flywheel
+import flywheel
 import flywheel_gear_toolkit as gt
-# from OHIF_Template import OHIF
+from OHIF_Template import OHIF
 
 image_path = "/tmp/DIMG"
 flywheel_path = "/flywheel/v0"
@@ -247,14 +247,14 @@ if __name__ == "__main__":
     measure = config["Measurement"]
     weeks = config["GE"]
 
-    # for inp in context.config_json["inputs"].values():
-    #     if inp["base"] == "api-key" and inp["key"]:
-    #         api_key = inp["key"]
-    # cur_dest = context.destination
-    # fw = flywheel.Client(api_key)
-    # dest_handle = fw.get(cur_dest["id"])
-    # cur_session = fw.get_session(dest_handle.parents.session)
-    # ohifViewer = OHIF(cur_session)
+    for inp in context.config_json["inputs"].values():
+        if inp["base"] == "api-key" and inp["key"]:
+            api_key = inp["key"]
+    cur_dest = context.destination
+    fw = flywheel.Client(api_key)
+    dest_handle = fw.get(cur_dest["id"])
+    cur_session = fw.get_session(dest_handle.parents.session)
+    ohifViewer = OHIF(cur_session)
 
     info_csv = os.path.join(output_path, "info.csv")
     df_instance = pd.read_csv(info_csv)
@@ -342,21 +342,24 @@ if __name__ == "__main__":
         )
         cv2.imwrite(Pons_name, img)
 
-        # dir_name = os.path.dirname(data.DicomPath)
-        # file_id = os.path.basename(dir_name)
-        # ohifViewer.addLengths(
-        #     fw,
-        #     file_id,
-        #     mmPons,
-        #     resultPonsText,
-        #     resultPonsColor,
-        #     Pons_1x,
-        #     Pons_1y,
-        #     Pons_2x,
-        #     Pons_2y,
-        #     data["InstanceNumber"],
-        #     "Pons"
-        # )
+        inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
+        print(inst_name)
+        dir_name = os.path.dirname(data.DicomPath)
+        file_id = os.path.basename(dir_name)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            inst_name,
+            mmPons,
+            resultPonsText,
+            resultPonsColor,
+            Pons_1x,
+            Pons_1y,
+            Pons_2x,
+            Pons_2y,
+            data["InstanceNumber"],
+            "Pons"
+        )
 
     if measure.find("All") == 0 or measure.find("Vermis") > 0:
         df_instance = df_instance.sort_values(by="deltaVermis", ascending=False)
@@ -387,7 +390,7 @@ if __name__ == "__main__":
         reportList.append(resultVermisLine)
         txtLine = "\n          normal range: (%s)\n" % (normalVermisText)
         reportList.append(txtLine)
-        txtLine = "            coordinate: [%3d %3d] \t [%3d %3d]\n" % (
+        txtLine = "            coordinate: [%3d %3d] [%3d %3d]\n" % (
             Vermis_1x,
             Vermis_1y,
             Vermis_2x,
@@ -473,34 +476,37 @@ if __name__ == "__main__":
         )
         cv2.imwrite(Vermis_name, img)
 
-        # dir_name = os.path.dirname(data.DicomPath)
-        # file_id = os.path.basename(dir_name)
-        # ohifViewer.addLengths(
-        #     fw,
-        #     file_id,
-        #     mmVermis,
-        #     resultVermisText,
-        #     resultVermisColor,
-        #     Vermis_1x,
-        #     Vermis_1y,
-        #     Vermis_2x,
-        #     Vermis_2y,
-        #     data["InstanceNumber"],
-        #     "Vermis"
-        # )
-        # ohifViewer.addLengths(
-        #     fw,
-        #     file_id,
-        #     mmHVermis,
-        #     resultHVermisText,
-        #     resultHVermisColor,
-        #     HVermis_1x,
-        #     HVermis_1y,
-        #     HVermis_2x,
-        #     HVermis_2y,
-        #     data["InstanceNumber"],
-        #     "HVermis"
-        # )
+        inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
+        dir_name = os.path.dirname(data.DicomPath)
+        file_id = os.path.basename(dir_name)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            inst_name,
+            mmVermis,
+            resultVermisText,
+            resultVermisColor,
+            Vermis_1x,
+            Vermis_1y,
+            Vermis_2x,
+            Vermis_2y,
+            data["InstanceNumber"],
+            "Vermis"
+        )
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            inst_name,
+            mmHVermis,
+            resultHVermisText,
+            resultHVermisColor,
+            HVermis_1x,
+            HVermis_1y,
+            HVermis_2x,
+            HVermis_2y,
+            data["InstanceNumber"],
+            "HVermis"
+        )
 
     if measure.find("All") == 0 or measure.find("Fronto") == 0:
         df_instance = df_instance.sort_values(by="deltaFronto", ascending=False)
@@ -567,19 +573,23 @@ if __name__ == "__main__":
         )
         cv2.imwrite(Fronto_name, img)
 
-        # ohifViewer.addLengths(
-        #     fw,
-        #     file_id,
-        #     mmFronto,
-        #     resultFrontoText,
-        #     resultFrontoColor,
-        #     Fronto_1x,
-        #     Fronto_1y,
-        #     Fronto_2x,
-        #     Fronto_2y,
-        #     data["InstanceNumber"],
-        #     "Fronto"
-        # )
+        inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
+        dir_name = os.path.dirname(data.DicomPath)
+        file_id = os.path.basename(dir_name)
+        ohifViewer.addLengths(
+            fw,
+            file_id,
+            inst_name,
+            mmFronto,
+            resultFrontoText,
+            resultFrontoColor,
+            Fronto_1x,
+            Fronto_1y,
+            Fronto_2x,
+            Fronto_2y,
+            data["InstanceNumber"],
+            "Fronto"
+        )
 
     for line in reportList:
         print(line)
@@ -595,4 +605,4 @@ if __name__ == "__main__":
     f.writelines(reportList)
     f.close()
 
-    # ohifViewer.update()
+    ohifViewer.update()

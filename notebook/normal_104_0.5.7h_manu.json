@@ -1,0 +1,310 @@
+[
+        {
+                "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+                "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+                "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+                "_id": "37cdbe5c-0bb6-c527-f851-041122162e50",
+                "active": false,
+                "color": "rgba(250,250,250,0.2)",
+                "description": "normal - Pons",
+                "flywheelOrigin": {
+                        "id": "Xuchu_Liu@rush.edu",
+                        "type": "user"
+                },
+                "frameIndex": 0,
+                "handles": {
+                        "end": {
+                                "active": false,
+                                "highlight": true,
+                                "moving": false,
+                                "x": 238,
+                                "y": 264
+                        },
+                        "start": {
+                                "active": false,
+                                "highlight": true,
+                                "x": 266,
+                                "y": 267
+                        },
+                        "textBox": {
+                                "active": false,
+                                "allowedOutsideImage": true,
+                                "boundingBox": {
+                                        "height": 25,
+                                        "left": 614.59375,
+                                        "top": 417.203125,
+                                        "width": 73.171875
+                                },
+                                "drawnIndependently": true,
+                                "hasBoundingBox": false,
+                                "hasMoved": false,
+                                "movesIndependently": false,
+                                "x": 266,
+                                "y": 267
+                        }
+                },
+                "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+                "invalidated": false,
+                "length": 8.8,
+                "lesionNamingNumber": 1,
+                "location": "Brain",
+                "measurementNumber": 1,
+                "sliceNumber": 9,
+                "timepointId": "TimepointId",
+                "toolType": "Length",
+                "visible": true
+        },
+        {
+                "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+                "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+                "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+                "_id": "38cbf924-359d-35c2-3934-50aa0dba5300",
+                "active": false,
+                "color": "rgba(250,60,60,0.2)",
+                "description": "abnormal - Vermis",
+                "flywheelOrigin": {
+                        "id": "Xuchu_Liu@rush.edu",
+                        "type": "user"
+                },
+                "frameIndex": 0,
+                "handles": {
+                        "end": {
+                                "active": false,
+                                "highlight": true,
+                                "moving": false,
+                                "x": 274,
+                                "y": 267
+                        },
+                        "start": {
+                                "active": false,
+                                "highlight": true,
+                                "x": 297,
+                                "y": 271
+                        },
+                        "textBox": {
+                                "active": false,
+                                "allowedOutsideImage": true,
+                                "boundingBox": {
+                                        "height": 25,
+                                        "left": 664.484375,
+                                        "top": 423.640625,
+                                        "width": 73.171875
+                                },
+                                "drawnIndependently": true,
+                                "hasBoundingBox": false,
+                                "hasMoved": false,
+                                "movesIndependently": false,
+                                "x": 297,
+                                "y": 271
+                        }
+                },
+                "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+                "invalidated": false,
+                "length": 7.3,
+                "lesionNamingNumber": 2,
+                "location": "Brain",
+                "measurementNumber": 2,
+                "sliceNumber": 9,
+                "timepointId": "TimepointId",
+                "toolType": "Length",
+                "visible": true
+        },
+        {
+                "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+                "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+                "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+                "_id": "9864dc32-802e-8439-9b9e-b9d4f22e6601",
+                "active": false,
+                "color": "rgba(250,250,250,0.2)",
+                "description": "normal - HVermis",
+                "flywheelOrigin": {
+                        "id": "Xuchu_Liu@rush.edu",
+                        "type": "user"
+                },
+                "frameIndex": 0,
+                "handles": {
+                        "end": {
+                                "active": false,
+                                "highlight": true,
+                                "moving": false,
+                                "x": 280,
+                                "y": 255
+                        },
+                        "start": {
+                                "active": false,
+                                "highlight": true,
+                                "x": 283,
+                                "y": 289
+                        },
+                        "textBox": {
+                                "active": false,
+                                "allowedOutsideImage": true,
+                                "boundingBox": {
+                                        "height": 25,
+                                        "left": 641.953125,
+                                        "top": 452.609375,
+                                        "width": 82.15625
+                                },
+                                "drawnIndependently": true,
+                                "hasBoundingBox": false,
+                                "hasMoved": false,
+                                "movesIndependently": false,
+                                "x": 283,
+                                "y": 289
+                        }
+                },
+                "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+                "invalidated": false,
+                "length": 10.67,
+                "lesionNamingNumber": 3,
+                "location": "Brain",
+                "measurementNumber": 3,
+                "sliceNumber": 9,
+                "timepointId": "TimepointId",
+                "toolType": "Length",
+                "visible": true
+        },
+        {
+                "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176",
+                "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+                "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+                "_id": "bca0c620-7412-2abd-d894-82a931995fde",
+                "active": false,
+                "color": "rgba(250,250,250,0.2)",
+                "description": "normal - Fronto",
+                "flywheelOrigin": {
+                        "id": "Xuchu_Liu@rush.edu",
+                        "type": "user"
+                },
+                "frameIndex": 0,
+                "handles": {
+                        "end": {
+                                "active": false,
+                                "highlight": true,
+                                "moving": false,
+                                "x": 146,
+                                "y": 206
+                        },
+                        "start": {
+                                "active": false,
+                                "highlight": true,
+                                "x": 351,
+                                "y": 239
+                        },
+                        "textBox": {
+                                "active": false,
+                                "allowedOutsideImage": true,
+                                "boundingBox": {
+                                        "height": 25,
+                                        "left": 751.390625,
+                                        "top": 372.140625,
+                                        "width": 82.15625
+                                },
+                                "drawnIndependently": true,
+                                "hasBoundingBox": false,
+                                "hasMoved": false,
+                                "movesIndependently": false,
+                                "x": 351,
+                                "y": 239
+                        }
+                },
+                "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.327514828810708314931023379241659053176$$$0",
+                "invalidated": false,
+                "length": 64.89,
+                "lesionNamingNumber": 4,
+                "location": "Brain",
+                "measurementNumber": 4,
+                "sliceNumber": 9,
+                "timepointId": "TimepointId",
+                "toolType": "Length",
+                "visible": true
+        },
+        {
+                "SOPInstanceUID": "1.3.6.1.4.1.9590.100.1.2.300729440912276804104811347350318720734",
+                "SeriesInstanceUID": "1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836",
+                "StudyInstanceUID": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049",
+                "_id": "db2ac2ee-e555-cc4a-f403-979c7b59c1c0",
+                "_measurementServiceId": "eaff36a8-e3e7-17a2-4a88-61c82a3333df",
+                "active": true,
+                "color": "rgba(244, 67, 54, 0.2)",
+                "description": "manu_Fronto",
+                "flywheelOrigin": {
+                        "id": "Xuchu_Liu@rush.edu",
+                        "type": "user"
+                },
+                "frameIndex": 0,
+                "handles": {
+                        "end": {
+                                "active": false,
+                                "highlight": true,
+                                "moving": false,
+                                "x": 356.34951456310677,
+                                "y": 241.70873786407765
+                        },
+                        "start": {
+                                "active": false,
+                                "highlight": true,
+                                "x": 140.1165048543689,
+                                "y": 187.65048543689318
+                        },
+                        "textBox": {
+                                "active": false,
+                                "allowedOutsideImage": true,
+                                "boundingBox": {
+                                        "height": 25,
+                                        "left": 760,
+                                        "top": 376.49999999999994,
+                                        "width": 82.15625
+                                },
+                                "drawnIndependently": true,
+                                "hasBoundingBox": true,
+                                "hasMoved": false,
+                                "movesIndependently": false,
+                                "x": 356.34951456310677,
+                                "y": 241.70873786407765
+                        }
+                },
+                "imagePath": "1.3.6.1.4.1.9590.100.1.2.324454941611468167905923959403180247049$$$1.3.6.1.4.1.9590.100.1.2.370129576512473425036511860501458541836$$$1.3.6.1.4.1.9590.100.1.2.300729440912276804104811347350318720734$$$0",
+                "invalidated": false,
+                "length": 69.65246396674493,
+                "lesionNamingNumber": 5,
+                "location": "Brain",
+                "measurementNumber": 5,
+                "sliceNumber": 9,
+                "timepointId": "TimepointId",
+                "toolType": "Length",
+                "userId": "NONE",
+                "uuid": "ab638e86-5aa6-4cbf-8030-f8f0b9030e35",
+                "viewport": {
+                        "displayedArea": {
+                                "brhc": {
+                                        "x": 512,
+                                        "y": 512
+                                },
+                                "columnPixelSpacing": 0.3125,
+                                "presentationSizeMode": "NONE",
+                                "rowPixelSpacing": 0.3125,
+                                "tlhc": {
+                                        "x": 1,
+                                        "y": 1
+                                }
+                        },
+                        "hflip": false,
+                        "invert": false,
+                        "labelmap": false,
+                        "pixelReplication": false,
+                        "rotation": 0,
+                        "scale": 1.609375,
+                        "translation": {
+                                "x": 0,
+                                "y": 0
+                        },
+                        "vflip": false,
+                        "voi": {
+                                "windowCenter": 416.169921875,
+                                "windowWidth": 1062.673828125
+                        }
+                },
+                "visible": true
+        }
+]

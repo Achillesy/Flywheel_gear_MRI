@@ -1,5 +1,6 @@
 import logging
 import copy
+import uuid
 
 logging.basicConfig(level="INFO")
 log = logging.getLogger("OHIF")
@@ -31,6 +32,7 @@ Length_Template = {
     "location": "Brain",
     "measurementNumber": 1,
     "sliceNumber": 0,
+    "timepointId": "TimepointId",
     "SeriesInstanceUID": "1.3.6",
     "SOPInstanceUID": "1.3.6",
     "StudyInstanceUID": "1.3.6",
@@ -65,6 +67,7 @@ class OHIF:
         self,
         flywheel,
         file_id,
+        inst_name,
         mmLens,
         lensText,
         lensColor,
@@ -77,6 +80,7 @@ class OHIF:
     ):
         log.info("Add %s to Length: %s", desp, file_id)
         Lens_Length = copy.deepcopy(Length_Template)
+        Lens_Length["_id"] = str(uuid.uuid4())
         Lens_Length["description"] = f"{lensText} - {desp}"
         num_Length = len(self.length_metadata)
         Lens_Length["handles"]["end"]["x"] = lens_1x
@@ -97,7 +101,7 @@ class OHIF:
 
         lens_file = flywheel.get_file(file_id)
         Lens_Length["SeriesInstanceUID"] = lens_file["info"]["SeriesInstanceUID"]
-        Lens_Length["SOPInstanceUID"] = lens_file["info"]["SOPInstanceUID"]
+        Lens_Length["SOPInstanceUID"] = inst_name # lens_file["info"]["SOPInstanceUID"]
         Lens_Length["StudyInstanceUID"] = lens_file["info"]["StudyInstanceUID"]
 
         path_delimiter = "$$$"

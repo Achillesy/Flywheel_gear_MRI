@@ -35,24 +35,31 @@ if __name__ == '__main__':
         # with open("/flywheel/v0/output/cur_session.josn", "w") as f:
         #     json.dump(cur_session, f)
 
-        acquisitions = cur_session.acquisitions()
         # work_dir = context.work_dir
         work_dir = "/tmp/DZIP"
+
+        sel_file = context.get_input_path('input_sag')
+        if not sel_file is None:
+            sel_file_name = os.path.basename(sel_file)
+            sel_file_name_upper = sel_file_name.upper()
+
+        acquisitions = cur_session.acquisitions()
         for acquisition in acquisitions:
             # Assume only one file per acquisition, could filter for dicom files if needed
             file_ = acquisition.files[0]
             file_name_upper = file_.name.upper()
             if ("SAG" in file_name_upper) and (file_name_upper.endswith(".ZIP")):
-                # Create a destinatino directory for this acqusitions file
-                # acq_dir = os.path.join(work_dir, acquisition.label)
-                acq_dir = os.path.join(work_dir, file_.file_id)
-                os.makedirs(acq_dir)
-                # Download file
-                acq_file = os.path.join(acq_dir, file_.name)
-                file_.download(acq_file)
-                # Unzip if necessary
-                with zipfile.ZipFile(acq_file, 'r') as zip_ref:
-                    zip_ref.extractall(acq_dir)
+                if (sel_file is None) or (sel_file_name_upper in file_name_upper):
+                    # Create a destinatino directory for this acqusitions file
+                    # acq_dir = os.path.join(work_dir, acquisition.label)
+                    acq_dir = os.path.join(work_dir, file_.file_id)
+                    os.makedirs(acq_dir)
+                    # Download file
+                    acq_file = os.path.join(acq_dir, file_.name)
+                    file_.download(acq_file)
+                    # Unzip if necessary
+                    with zipfile.ZipFile(acq_file, 'r') as zip_ref:
+                        zip_ref.extractall(acq_dir)
     except Exception as e:
         log.exception(e)
         exit_status = 1

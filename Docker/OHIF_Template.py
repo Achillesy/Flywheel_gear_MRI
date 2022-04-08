@@ -78,10 +78,10 @@ class OHIF:
         instanceNumber,
         desp
     ):
-        log.info("Add %s to Length: %s", desp, file_id)
+        log.info("Add %s to Length: %s %s", desp, file_id, inst_name)
         Lens_Length = copy.deepcopy(Length_Template)
         Lens_Length["_id"] = str(uuid.uuid4())
-        Lens_Length["description"] = f"{lensText} - {desp}"
+        Lens_Length["description"] = f"{lensText}"
         num_Length = len(self.length_metadata)
         Lens_Length["handles"]["end"]["x"] = lens_1x
         Lens_Length["handles"]["end"]["y"] = lens_1y

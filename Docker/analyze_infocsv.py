@@ -183,62 +183,62 @@ def checkHVermis(sizeHVermis, weeks):
     return b_HVermis, normalHVermisText
 
 
-def checkFronto(sizeFronto, weeks):
-    b_Fronto = False
-    normalFrontoText = "Unknown"
-    if weeks == 22 or weeks == 23:
-        normalFrontoText = "60 ~ 73 mm"
-        if sizeFronto > 60 and sizeFronto < 73:
-            b_Fronto = True
-    if weeks == 24 or weeks == 25:
-        normalFrontoText = "60 ~ 81 mm"
-        if sizeFronto > 60 and sizeFronto < 81:
-            b_Fronto = True
-    if weeks == 26:
-        normalFrontoText = "71 ~ 90 mm"
-        if sizeFronto > 71 and sizeFronto < 90:
-            b_Fronto = True
-    if weeks == 27:
-        normalFrontoText = "73 ~ 90 mm"
-        if sizeFronto > 73 and sizeFronto < 90:
-            b_Fronto = True
-    if weeks == 28:
-        normalFrontoText = "70 ~ 90 mm"
-        if sizeFronto > 70 and sizeFronto < 90:
-            b_Fronto = True
-    if weeks == 29:
-        normalFrontoText = "75 ~ 95 mm"
-        if sizeFronto > 75 and sizeFronto < 95:
-            b_Fronto = True
-    if weeks == 30:
-        normalFrontoText = "77 ~ 108 mm"
-        if sizeFronto > 77 and sizeFronto < 108:
-            b_Fronto = True
-    if weeks == 31:
-        normalFrontoText = "82 ~ 97 mm"
-        if sizeFronto > 82 and sizeFronto < 97:
-            b_Fronto = True
-    if weeks == 32:
-        normalFrontoText = "82 ~ 106 mm"
-        if sizeFronto > 82 and sizeFronto < 106:
-            b_Fronto = True
-    if weeks == 33:
-        normalFrontoText = "90 ~ 105 mm"
-        if sizeFronto > 90 and sizeFronto < 105:
-            b_Fronto = True
-    if weeks == 34:
-        normalFrontoText = "90 ~ 114 mm"
-        if sizeFronto > 90 and sizeFronto < 114:
-            b_Fronto = True
-    if weeks == 35 or weeks == 36:
-        normalFrontoText = "97 ~ 113 mm"
-        if sizeFronto > 97 and sizeFronto < 113:
-            b_Fronto = True
-    if weeks == 37 or weeks == 38:
-        normalFrontoText = "90 ~ 112 mm"
-        if sizeFronto > 90 and sizeFronto < 112:
-            b_Fronto = True
-    return b_Fronto, normalFrontoText
+# def checkFronto(sizeFronto, weeks):
+#     b_Fronto = False
+#     normalFrontoText = "Unknown"
+#     if weeks == 22 or weeks == 23:
+#         normalFrontoText = "60 ~ 73 mm"
+#         if sizeFronto > 60 and sizeFronto < 73:
+#             b_Fronto = True
+#     if weeks == 24 or weeks == 25:
+#         normalFrontoText = "60 ~ 81 mm"
+#         if sizeFronto > 60 and sizeFronto < 81:
+#             b_Fronto = True
+#     if weeks == 26:
+#         normalFrontoText = "71 ~ 90 mm"
+#         if sizeFronto > 71 and sizeFronto < 90:
+#             b_Fronto = True
+#     if weeks == 27:
+#         normalFrontoText = "73 ~ 90 mm"
+#         if sizeFronto > 73 and sizeFronto < 90:
+#             b_Fronto = True
+#     if weeks == 28:
+#         normalFrontoText = "70 ~ 90 mm"
+#         if sizeFronto > 70 and sizeFronto < 90:
+#             b_Fronto = True
+#     if weeks == 29:
+#         normalFrontoText = "75 ~ 95 mm"
+#         if sizeFronto > 75 and sizeFronto < 95:
+#             b_Fronto = True
+#     if weeks == 30:
+#         normalFrontoText = "77 ~ 108 mm"
+#         if sizeFronto > 77 and sizeFronto < 108:
+#             b_Fronto = True
+#     if weeks == 31:
+#         normalFrontoText = "82 ~ 97 mm"
+#         if sizeFronto > 82 and sizeFronto < 97:
+#             b_Fronto = True
+#     if weeks == 32:
+#         normalFrontoText = "82 ~ 106 mm"
+#         if sizeFronto > 82 and sizeFronto < 106:
+#             b_Fronto = True
+#     if weeks == 33:
+#         normalFrontoText = "90 ~ 105 mm"
+#         if sizeFronto > 90 and sizeFronto < 105:
+#             b_Fronto = True
+#     if weeks == 34:
+#         normalFrontoText = "90 ~ 114 mm"
+#         if sizeFronto > 90 and sizeFronto < 114:
+#             b_Fronto = True
+#     if weeks == 35 or weeks == 36:
+#         normalFrontoText = "97 ~ 113 mm"
+#         if sizeFronto > 97 and sizeFronto < 113:
+#             b_Fronto = True
+#     if weeks == 37 or weeks == 38:
+#         normalFrontoText = "90 ~ 112 mm"
+#         if sizeFronto > 90 and sizeFronto < 112:
+#             b_Fronto = True
+#     return b_Fronto, normalFrontoText
 
 
 if __name__ == "__main__":
@@ -259,7 +259,7 @@ if __name__ == "__main__":
     info_csv = os.path.join(output_path, "info.csv")
     df_instance = pd.read_csv(info_csv)
 
-    normalColor = (250, 250, 250)
+    normalColor = (60, 230, 250)
     abnormalColor = (60, 60, 250)
     reportList = []
 
@@ -299,7 +299,7 @@ if __name__ == "__main__":
             resultPonsText = "abnormal"
             resultPonsColor = abnormalColor
 
-        resultPonsLine = "A-P Diameter of Pons: %.2fmm %s" % (mmPons, resultPonsText)
+        resultPonsLine = "A-P Diameter of Pons: %.2fmm %s %.1f%%" % (mmPons, resultPonsText, Pons_conf)
         reportList.append(resultPonsLine)
         txtLine = "\n        normal range: (%s)\n" % (normalPonsText)
         reportList.append(txtLine)
@@ -336,7 +336,7 @@ if __name__ == "__main__":
             resultPonsLine,
             (10, 25),
             cv2.FONT_HERSHEY_COMPLEX,
-            0.6,
+            0.5,
             resultPonsColor,
             1,
         )
@@ -346,12 +346,13 @@ if __name__ == "__main__":
         print(inst_name)
         dir_name = os.path.dirname(data.DicomPath)
         file_id = os.path.basename(dir_name)
+        resultPonsDisp = "Pons: %s %.1f%%" % (resultPonsText, Pons_conf)
         ohifViewer.addLengths(
             fw,
             file_id,
             inst_name,
             mmPons,
-            resultPonsText,
+            resultPonsDisp,
             resultPonsColor,
             Pons_1x,
             Pons_1y,
@@ -383,9 +384,10 @@ if __name__ == "__main__":
         else:
             resultVermisText = "abnormal"
             resultVermisColor = abnormalColor
-        resultVermisLine = "A-P Diameter of Vermis: %.2fmm %s" % (
+        resultVermisLine = "A-P Diameter of Vermis: %.2fmm %s %.1f%%" % (
             mmVermis,
             resultVermisText,
+            Vermis_conf
         )
         reportList.append(resultVermisLine)
         txtLine = "\n          normal range: (%s)\n" % (normalVermisText)
@@ -414,9 +416,10 @@ if __name__ == "__main__":
         else:
             resultHVermisText = "abnormal"
             resultHVermisColor = abnormalColor
-        resultHVermisLine = "Height of Vermis: %.2fmm %s" % (
+        resultHVermisLine = "Height of Vermis: %.2fmm %s %.1f%%" % (
             mmHVermis,
             resultHVermisText,
+            Vermis_conf
         )
         reportList.append(resultHVermisLine)
         txtLine = "\n    normal range: (%s)\n" % (normalHVermisText)
@@ -454,7 +457,7 @@ if __name__ == "__main__":
             resultVermisLine,
             (10, 50),
             cv2.FONT_HERSHEY_COMPLEX,
-            0.6,
+            0.5,
             resultVermisColor,
             1,
         )
@@ -470,7 +473,7 @@ if __name__ == "__main__":
             resultHVermisLine,
             (10, 75),
             cv2.FONT_HERSHEY_COMPLEX,
-            0.6,
+            0.5,
             resultHVermisColor,
             1,
         )
@@ -479,12 +482,13 @@ if __name__ == "__main__":
         inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
         dir_name = os.path.dirname(data.DicomPath)
         file_id = os.path.basename(dir_name)
+        resultVermisDisp = "Vermis: %s %.1f%%" % (resultVermisText, Vermis_conf)
         ohifViewer.addLengths(
             fw,
             file_id,
             inst_name,
             mmVermis,
-            resultVermisText,
+            resultVermisDisp,
             resultVermisColor,
             Vermis_1x,
             Vermis_1y,
@@ -493,12 +497,13 @@ if __name__ == "__main__":
             data["InstanceNumber"],
             "Vermis"
         )
+        resultHVermisDisp = "HVermis: %s %.1f%%" % (resultHVermisText, Vermis_conf)
         ohifViewer.addLengths(
             fw,
             file_id,
             inst_name,
             mmHVermis,
-            resultHVermisText,
+            resultHVermisDisp,
             resultHVermisColor,
             HVermis_1x,
             HVermis_1y,
@@ -508,88 +513,89 @@ if __name__ == "__main__":
             "HVermis"
         )
 
-    if measure.find("All") == 0 or measure.find("Fronto") == 0:
-        df_instance = df_instance.sort_values(by="deltaFronto", ascending=False)
-        data = df_instance.iloc[0]
-        Fronto_img = data.Id + ".jpg"
-        Fronto_dcm = data.Id + ".dcm"
-        Fronto_conf = round(data.deltaFronto * 50, 1)
-        Fronto_1x = int(data.Fronto_1x * data.Columns / img_size)
-        Fronto_1y = int(data.Fronto_1y * data.Rows / img_size)
-        Fronto_2x = int(data.Fronto_2x * data.Columns / img_size)
-        Fronto_2y = int(data.Fronto_2y * data.Rows / img_size)
-        dist_mm = np.sqrt(
-            np.square(Fronto_1y - Fronto_2y) + np.square(Fronto_1x - Fronto_2x)
-        )
-        mmFronto = round(dist_mm * data.PixelSpacing1, 2)
-        b_Fronto, normalFrontoText = checkFronto(mmFronto, weeks)
-        if b_Fronto:
-            resultFrontoText = "normal"
-            resultFrontoColor = normalColor
-        else:
-            resultFrontoText = "abnormal"
-            resultFrontoColor = abnormalColor
+    # if measure.find("All") == 0 or measure.find("Fronto") == 0:
+    #     df_instance = df_instance.sort_values(by="deltaFronto", ascending=False)
+    #     data = df_instance.iloc[0]
+    #     Fronto_img = data.Id + ".jpg"
+    #     Fronto_dcm = data.Id + ".dcm"
+    #     Fronto_conf = round(data.deltaFronto * 50, 1)
+    #     Fronto_1x = int(data.Fronto_1x * data.Columns / img_size)
+    #     Fronto_1y = int(data.Fronto_1y * data.Rows / img_size)
+    #     Fronto_2x = int(data.Fronto_2x * data.Columns / img_size)
+    #     Fronto_2y = int(data.Fronto_2y * data.Rows / img_size)
+    #     dist_mm = np.sqrt(
+    #         np.square(Fronto_1y - Fronto_2y) + np.square(Fronto_1x - Fronto_2x)
+    #     )
+    #     mmFronto = round(dist_mm * data.PixelSpacing1, 2)
+    #     b_Fronto, normalFrontoText = checkFronto(mmFronto, weeks)
+    #     if b_Fronto:
+    #         resultFrontoText = "normal"
+    #         resultFrontoColor = normalColor
+    #     else:
+    #         resultFrontoText = "abnormal"
+    #         resultFrontoColor = abnormalColor
 
-        resultFrontoLine = "Fronto-Occpitial: %.2fmm %s" % (mmFronto, resultFrontoText)
-        reportList.append(resultFrontoLine)
-        txtLine = "\n    normal range: (%s)\n" % (normalFrontoText)
-        reportList.append(txtLine)
-        txtLine = "        coordinate: [%3d %3d] [%3d %3d]\n" % (
-            Fronto_1x,
-            Fronto_1y,
-            Fronto_2x,
-            Fronto_2y,
-        )
-        reportList.append(txtLine)
-        txtLine = "%s - confidence:%.1f%%\n" % (Fronto_img, Fronto_conf)
-        reportList.append(txtLine)
-        txtLine = "SeriesNumber: %s \t" % (data["SeriesNumber"])
-        reportList.append(txtLine)
-        txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
-        reportList.append(txtLine)
+    #     resultFrontoLine = "Fronto-Occpitial: %.2fmm %s %.1f%%" % (mmFronto, resultFrontoText, Fronto_conf)
+    #     reportList.append(resultFrontoLine)
+    #     txtLine = "\n    normal range: (%s)\n" % (normalFrontoText)
+    #     reportList.append(txtLine)
+    #     txtLine = "        coordinate: [%3d %3d] [%3d %3d]\n" % (
+    #         Fronto_1x,
+    #         Fronto_1y,
+    #         Fronto_2x,
+    #         Fronto_2y,
+    #     )
+    #     reportList.append(txtLine)
+    #     txtLine = "%s - confidence:%.1f%%\n" % (Fronto_dcm, Fronto_conf)
+    #     reportList.append(txtLine)
+    #     txtLine = "SeriesNumber: %s \t" % (data["SeriesNumber"])
+    #     reportList.append(txtLine)
+    #     txtLine = "InstanceNumber: %s\n\n" % (data["InstanceNumber"])
+    #     reportList.append(txtLine)
 
-        # Fronto_dcm_name = os.path.join(output_path, Fronto_dcm)
-        # if not os.path.exists(Fronto_dcm_name):
-        #     os.system('cp ' + data.DicomPath + ' ' + Fronto_dcm_name)
-        Fronto_name = os.path.join(output_path, Fronto_img)
-        if not os.path.exists(Fronto_name):
-            os.system("cp /tmp/DIMG/" + Fronto_img + " " + Fronto_name)
-        img = cv2.imread(Fronto_name)
-        cv2.line(
-            img,
-            (Fronto_1x, Fronto_1y),
-            (Fronto_2x, Fronto_2y),
-            color=resultFrontoColor,
-            thickness=2,
-        )
-        cv2.putText(
-            img,
-            resultFrontoLine,
-            (10, 100),
-            cv2.FONT_HERSHEY_COMPLEX,
-            0.6,
-            resultFrontoColor,
-            1,
-        )
-        cv2.imwrite(Fronto_name, img)
+    #     # Fronto_dcm_name = os.path.join(output_path, Fronto_dcm)
+    #     # if not os.path.exists(Fronto_dcm_name):
+    #     #     os.system('cp ' + data.DicomPath + ' ' + Fronto_dcm_name)
+    #     Fronto_name = os.path.join(output_path, Fronto_img)
+    #     if not os.path.exists(Fronto_name):
+    #         os.system("cp /tmp/DIMG/" + Fronto_img + " " + Fronto_name)
+    #     img = cv2.imread(Fronto_name)
+    #     cv2.line(
+    #         img,
+    #         (Fronto_1x, Fronto_1y),
+    #         (Fronto_2x, Fronto_2y),
+    #         color=resultFrontoColor,
+    #         thickness=2,
+    #     )
+    #     cv2.putText(
+    #         img,
+    #         resultFrontoLine,
+    #         (10, 100),
+    #         cv2.FONT_HERSHEY_COMPLEX,
+    #         0.5,
+    #         resultFrontoColor,
+    #         1,
+    #     )
+    #     cv2.imwrite(Fronto_name, img)
 
-        inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
-        dir_name = os.path.dirname(data.DicomPath)
-        file_id = os.path.basename(dir_name)
-        ohifViewer.addLengths(
-            fw,
-            file_id,
-            inst_name,
-            mmFronto,
-            resultFrontoText,
-            resultFrontoColor,
-            Fronto_1x,
-            Fronto_1y,
-            Fronto_2x,
-            Fronto_2y,
-            data["InstanceNumber"],
-            "Fronto"
-        )
+    #     inst_name = os.path.basename(data.DicomPath).replace(".dcm", "").replace(".MR", "")
+    #     dir_name = os.path.dirname(data.DicomPath)
+    #     file_id = os.path.basename(dir_name)
+    #     resultFrontoDisp = "Fronto: %s %.1f%%" % (resultFrontoText, Fronto_conf)
+    #     ohifViewer.addLengths(
+    #         fw,
+    #         file_id,
+    #         inst_name,
+    #         mmFronto,
+    #         resultFrontoDisp,
+    #         resultFrontoColor,
+    #         Fronto_1x,
+    #         Fronto_1y,
+    #         Fronto_2x,
+    #         Fronto_2y,
+    #         data["InstanceNumber"],
+    #         "Fronto"
+    #     )
 
     for line in reportList:
         print(line)
@@ -599,8 +605,8 @@ if __name__ == "__main__":
         reportName = os.path.join(output_path, "AI_pons_report.txt")
     if measure.find("Vermis") > 0:
         reportName = os.path.join(output_path, "AI_vermis_report.txt")
-    if measure.find("Fronto") == 0:
-        reportName = os.path.join(output_path, "AI_fronto_report.txt")
+    # if measure.find("Fronto") == 0:
+    #     reportName = os.path.join(output_path, "AI_fronto_report.txt")
     f = open(reportName, "w")
     f.writelines(reportList)
     f.close()

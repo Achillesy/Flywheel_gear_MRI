@@ -2,7 +2,7 @@
     "name": "fetal-brain",
     "label": "Fetal MRI Anatomy Measurement",
     "description": "Deep Learning Model for Automatic Fetal Brain Landmark Localization in MRI.",
-    "version": "0.5.7n",
+    "version": "0.5.9",
     "author": "Xuchu Liu",
     "maintainer": "xuchu_liu@rush.edu",
     "cite": "God loves All Beings",
@@ -49,8 +49,7 @@
             "enum": [
                 "All of the measurements",
                 "A-P Diameter of Pons",
-                "A-P Diameter of Vermis and Height of Vermis",
-                "Fronto-Occpitial"
+                "A-P Diameter of Vermis and Height of Vermis"
             ]
         },
         "gear_log_level": {
